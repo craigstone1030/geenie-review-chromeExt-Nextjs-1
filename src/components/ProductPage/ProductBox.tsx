@@ -65,14 +65,14 @@ export default function ProductBox(props: ProductBoxProps) {
     <div className={props.img != '' ? "flex justify-center" : "flex justify-center blur-md"}>
       <div className="box relative mt-[10px] mb-[10px] w-[506px] gap-4 rounded-lg bg-[#2B2939] p-4 pb-[vh] text-white">
         <div className="flex">
-          <div className="flex w-[298px] gap-1">
-            <div className=" w-[164px] flex items-center">
+          <div className="flex gap-1">
+            <div className="w-[164px] flex items-center">
               <img className="shadow-lg h-full w-full object-center"
                   src={props.img}
                   alt="image" />
               <div className="box absolute top-0 left-0 right-0 bottom-0 xs:h-[15.5vh] md:h-[19.8vh]"></div>
             </div>
-            <div className="ml-[1px] w-[120px]">
+            <div className="ml-[1px] w-[140px]">
               <h2 className="whitespace-pre-line font-bold  line-clamp-4">{props.title}<p className="text-[#1D1C27] xs:text-[1px] md:text-[8px]">.</p></h2>
               <p className="text-neutral-400 text-xs"> ASIN {props.asin} </p>
               <p className="text-neutral-400 text-[10px] text-xs"> available on {props.firstavailable} </p>
@@ -82,7 +82,7 @@ export default function ProductBox(props: ProductBoxProps) {
           <div className="m-auto block">
             <div className="">
               <div className="">
-                <h2 className="font-bold"> Customer Rating </h2>
+                <h2 className="font-bold">Customer Rating</h2>
                 <div className=" pt-[12px] ">
                   <Stars
                     rating={props.customerRating}

@@ -24,6 +24,7 @@ interface ProductImproveItemProps {
   }: ProductImproveItemProps) => {
     
     const [answerShown, setAnswerShown] = useState<boolean>(true);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     // useEffect(() => {
     //     try {
@@ -53,14 +54,20 @@ interface ProductImproveItemProps {
     // }, [question]);
 
     return (
-        <div className="box mt-[1vw] rounded-lg bg-[#2B2939] p-4">
+        <div className="box mt-[1vw] rounded-lg bg-[#2B2939] p-4" onClick={() => { 
+          if(answer === '' && isLoading === false ) {
+            window.parent.postMessage({from:'nextjs', type:'getInitialAnswer', question: question}, "*")
+            setIsLoading(true);
+          } }}>
           <div className="m-auto flex">
             <div className="w-full">
-              <div className="mb-[6px] flex text-left justify-between" onClick={() => { setAnswerShown(!answerShown) }}>
+              <div className="mb-[6px] flex text-left justify-between" onClick={() => { 
+                  if(answer !== '') setAnswerShown(!answerShown) 
+                }}>
                 <h2 className="text-[15px] text-white">
                 {title}
                 </h2>
-                { answer == '' ? (<Spinner sm/>) : null }
+                { answer == '' && isLoading ? (<Spinner sm/>) : null }
               </div>
               { answer && answerShown ?
                 (

@@ -396,13 +396,14 @@ const ProductPage: React.FC<{
                   <input
                     type="text"
                     placeholder="What would like you know?"
+                    disabled={promptResponse == "Waiting"}
                     onChange={(e) => setPrompt(e.target.value)}
                     onKeyUp={(e) => {if (e.code === "Enter") { e.preventDefault(); handleSubmitPrompt(); }}}
                     className="w-full p-1 bg-inherit border-inherit text-[15px] text-white focus:border-0"
                   />
                   {/* <Spinner sm /> */}
                   <button className="fill-gray-300" onClick={() => { handleSubmitPrompt() }}>
-                      {promptResponse == "Waiting" ? <IconLoadingSend /> : null }
+                      {promptResponse == "Waiting" ? <IconLoadingSend /> : <IconSend /> }
                   </button>
                 </div>
                 { (promptResponse != "Waiting" && promptResponse != "" ) ?

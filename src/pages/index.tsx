@@ -183,9 +183,9 @@ const Home: NextPage = () => {
         setLoading(false)
         setPDinfoArrived(true)
         
-        initialData.forEach(item => {
-          window.parent.postMessage({from:'nextjs', type:'getInitialAnswer', question: item.question}, "*");
-        })
+        // initialData.forEach(item => {
+        //   window.parent.postMessage({from:'nextjs', type:'getInitialAnswer', question: item.question}, "*");
+        // })
 
         // alert('product information arrived');
         // alert(JSON.stringify(event.data.pdInfos))
@@ -201,7 +201,7 @@ const Home: NextPage = () => {
 
         setOpenAIResponse(initialData as any)
         setStateChange(event.data.question)
-        // console.log(stateChange)        
+        // console.log(stateChange)
         // alert(stateChange)
 
         // alert('common answer arrived');
